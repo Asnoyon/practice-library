@@ -10,10 +10,14 @@ const TodoList = () => {
       if(!input){
 
       } else{
-        const allInputData = {id:new Date().getTime().toString(),name:input} 
+        const allInputData = 
+        
+        //best way to declare unique id
+        
+        {id:new Date().getTime().toString(),name:input} 
         
     //Second way to Declare Random uinque id
-        {id:Math.floor(Math.random()*10),name:input}
+        // {id:Math.floor(Math.random()*10),name:input}
 
 
         console.log(allInputData)
