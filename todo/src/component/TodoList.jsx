@@ -12,6 +12,7 @@ const TodoList = () => {
 
                 <div className="addItems">
                     <input type="text" placeholder="✍ Add your items" id="" />
+                    <i class="fa fa-plus add-btn" title='Add Item'></i>
                 </div>
             </div>
         </div>
