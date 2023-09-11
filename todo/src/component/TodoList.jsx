@@ -3,8 +3,39 @@ import todo from "../images/todo.svg"
 const TodoList = () => {
     const [input,setInput]=useState('')
     const [items,setItems]=useState([])
+    
+    // add items
+    
     const addItem = ()=>{
+      if(!input){
 
+      } else{
+        const allInputData = {id:new Date().getTime().toString(),name:input} 
+        
+    //Second way to Declare Random uinque id
+        {id:Math.floor(Math.random()*10),name:input}
+
+
+        console.log(allInputData)
+        setItems([...items,allInputData])
+      setInput('')
+      }
+      
+    }
+
+
+    // delete items
+    const deleteItem=(id)=>{
+        console.log(id)
+        // const updateItems = items.filter((elem)=>{
+        //     return ind !== id
+        // })
+        // setItems(updateItems)
+    }
+
+    // remove items
+    const removeAll =()=>{
+        setItems([])
     }
   return (
     <>
@@ -17,17 +48,23 @@ const TodoList = () => {
 
                 <div className="addItems">
                     <input type="text" placeholder="✍ Add your items" value={input}  onChange={(e)=>setInput(e.target.value)}/>
-                    <i class="fa fa-plus add-btn" title='Add Item' onClick={addItem}></i>
+                    <i className="fa fa-plus add-btn" title='Add Item' onClick={addItem}></i>
                 </div>
                 <div className="showItems">
-                    <div className="eachItem">
-                        <h3>Apple</h3>
-                        <i class="fa-solid fa-trash add-btn" title='Delete Item'></i>
+                    {
+                       items.map((elem)=>{
+                        return(
+                            <div className="eachItem" key={elem.id}>
+                        <h3>{elem.name}</h3>
+                        <i className="fa-solid fa-trash add-btn" title='Delete Item' onClick={()=>deleteItem(elem.id)}></i>
                     </div>
+                        )
+                       })
+                    }
                 </div>
 
                 <div className="clearItem">
-                    <button className='btn effect04'><span>Check List</span></button>
+                    <button className='btn effect04' onClick={removeAll}><span>Clear List</span></button>
                 </div>
             </div>
         </div>
