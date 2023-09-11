@@ -20,6 +20,10 @@ const TodoList = () => {
                         <i class="fa-solid fa-trash add-btn" title='Delete Item'></i>
                     </div>
                 </div>
+
+                <div className="clearItem">
+                    <button className='btn effect04'><span>Check List</span></button>
+                </div>
             </div>
         </div>
     </>
