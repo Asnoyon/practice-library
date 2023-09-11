@@ -7,7 +7,12 @@ const TodoList = () => {
             <div className="child-div">
                 <figure>
                     <img src={todo} alt="todo_logo" />
+                    <figcaption>Add Your List Here</figcaption>
                 </figure>
+
+                <div className="addItems">
+                    <input type="text" placeholder="✍ Add your items" id="" />
+                </div>
             </div>
         </div>
     </>
