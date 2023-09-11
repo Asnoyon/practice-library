@@ -2,6 +2,10 @@ import React, { useState } from 'react'
 import todo from "../images/todo.svg"
 const TodoList = () => {
     const [input,setInput]=useState('')
+    const [items,setItems]=useState([])
+    const addItem = ()=>{
+
+    }
   return (
     <>
         <div className="main-div">
@@ -13,7 +17,7 @@ const TodoList = () => {
 
                 <div className="addItems">
                     <input type="text" placeholder="✍ Add your items" value={input}  onChange={(e)=>setInput(e.target.value)}/>
-                    <i class="fa fa-plus add-btn" title='Add Item'></i>
+                    <i class="fa fa-plus add-btn" title='Add Item' onClick={addItem}></i>
                 </div>
                 <div className="showItems">
                     <div className="eachItem">
