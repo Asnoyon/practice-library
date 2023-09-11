@@ -1,6 +1,6 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/project-1/node_modules
+/todo/node_modules
 
 /project-2/node_modules
