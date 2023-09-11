@@ -3,22 +3,18 @@ import todo from "../images/todo.svg"
 const TodoList = () => {
     const [input,setInput]=useState('')
     const [items,setItems]=useState([])
-    
+    const [toggle,setToggle]= useState(true)
     // add items
     
     const addItem = ()=>{
       if(!input){
 
       } else{
-        const allInputData = 
+         //best way to declare unique id
+        const allInputData = {id:new Date().getTime().toString(),name:input} 
         
-        //best way to declare unique id
-        
-        {id:new Date().getTime().toString(),name:input} 
-        
-    //Second way to Declare Random uinque id
+        //Second way to Declare Random uinque id
         // {id:Math.floor(Math.random()*10),name:input}
-
 
         setItems([...items,allInputData])
         setInput('')
@@ -28,18 +24,28 @@ const TodoList = () => {
 
 
     // delete items
-    const deleteItem=(index)=>{
+    const deleteItem=(dId)=>{
         // console.log(index)
         const updateItems = items.filter((elem)=>{
-            return index !== elem.id
+            return dId !== elem.id
         })
         setItems(updateItems)
+    }
+        // edit items
+
+    const editItem=(eId)=>{
+        let newEditItem = items.filter((elem)=>{
+            return eId=== elem.id
+        })
+        console.log(newEditItem);
     }
 
     // remove items
     const removeAll =()=>{
         setItems([])
     }
+
+
   return (
     <>
         <div className="main-div">
@@ -51,7 +57,11 @@ const TodoList = () => {
 
                 <div className="addItems">
                     <input type="text" placeholder="✍ Add your items" value={input}  onChange={(e)=>setInput(e.target.value)}/>
-                    <i className="fa fa-plus add-btn" title='Add Item' onClick={addItem}></i>
+
+                    //toggle icon plus to edit update
+                    {
+
+                    }
                 </div>
                 <div className="showItems">
                     {
@@ -59,7 +69,10 @@ const TodoList = () => {
                         return(
                             <div className="eachItem" key={elem.id}>
                         <h3>{elem.name}</h3>
-                        <i className="fa-solid fa-trash add-btn" title='Delete Item' onClick={()=>deleteItem(elem.id)}></i>
+                        <div className="todo_btn">
+                            <i className="fa-solid fa-edit add-btn" title='Edit Item' onClick={()=>editItem(elem.id)}></i>
+                            <i className="fa-solid fa-trash add-btn" title='Delete Item' onClick={()=>deleteItem(elem.id)}></i>
+                        </div>
                     </div>
                         )
                        })
