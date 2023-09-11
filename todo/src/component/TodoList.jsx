@@ -20,21 +20,20 @@ const TodoList = () => {
         // {id:Math.floor(Math.random()*10),name:input}
 
 
-        console.log(allInputData)
         setItems([...items,allInputData])
-      setInput('')
+        setInput('')
       }
       
     }
 
 
     // delete items
-    const deleteItem=(id)=>{
-        console.log(id)
-        // const updateItems = items.filter((elem)=>{
-        //     return ind !== id
-        // })
-        // setItems(updateItems)
+    const deleteItem=(index)=>{
+        // console.log(index)
+        const updateItems = items.filter((elem)=>{
+            return index !== elem.id
+        })
+        setItems(updateItems)
     }
 
     // remove items
