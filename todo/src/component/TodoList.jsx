@@ -4,12 +4,30 @@ const TodoList = () => {
     const [input,setInput]=useState('')
     const [items,setItems]=useState([])
     const [toggle,setToggle]= useState(true)
+    const [editId,setEditId]= useState(null)
     // add items
     
     const addItem = ()=>{
       if(!input){
+        alert("please field the data")
 
-      } else{
+      }else if (input && !toggle){
+        setItems(
+            items.map((elem)=>{
+                if(elem.id ===editId ){
+                    return {...elem, name:input}
+                }
+                return elem;
+            })
+        )
+        setInput('')
+        setToggle(true)
+        setEditId(null)
+      
+      }
+
+      
+      else{
          //best way to declare unique id
         const allInputData = {id:new Date().getTime().toString(),name:input} 
         
@@ -18,6 +36,8 @@ const TodoList = () => {
 
         setItems([...items,allInputData])
         setInput('')
+      
+        
       }
       
     }
@@ -34,10 +54,15 @@ const TodoList = () => {
         // edit items
 
     const editItem=(eId)=>{
-        let newEditItem = items.filter((elem)=>{
-            return eId=== elem.id
+        let newEditItem = items.find((elem)=>{
+            return eId === elem.id
         })
-        console.log(newEditItem);
+
+        // console.log(newEditItem);
+        setToggle(false)
+        setInput(newEditItem.name)
+        setEditId(eId)
+
     }
 
     // remove items
@@ -58,9 +83,10 @@ const TodoList = () => {
                 <div className="addItems">
                     <input type="text" placeholder="✍ Add your items" value={input}  onChange={(e)=>setInput(e.target.value)}/>
 
-                    //toggle icon plus to edit update
+                  {/* toggle icon plus to edit update */}
                     {
-
+                        toggle ? <i className="fa fa-plus add-btn" title='Add Item' onClick={addItem}></i>:
+                        <i className="fas fa-edit add-btn" title='Delete Item' onClick={addItem}></i>
                     }
                 </div>
                 <div className="showItems">
