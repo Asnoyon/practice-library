@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import todo from "../images/todo.svg"
 const TodoList = () => {
+    const [input,setInput]=useState('')
   return (
     <>
         <div className="main-div">
@@ -11,7 +12,7 @@ const TodoList = () => {
                 </figure>
 
                 <div className="addItems">
-                    <input type="text" placeholder="✍ Add your items" id="" />
+                    <input type="text" placeholder="✍ Add your items" value={input}  onChange={(e)=>setInput(e.target.value)}/>
                     <i class="fa fa-plus add-btn" title='Add Item'></i>
                 </div>
                 <div className="showItems">
