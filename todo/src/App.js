@@ -1,10 +1,12 @@
 import React from 'react'
-import TodoList from './component/TodoList'
+// import TodoList from './component/TodoList'
+import TodoForm from './component/TodoForm'
 
 const App = () => {
   return (
     <>
-      <TodoList/>
+      {/* <TodoList/> */}
+      <TodoForm/>
     </>
   )
 }
