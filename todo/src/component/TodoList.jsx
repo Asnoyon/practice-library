@@ -94,11 +94,11 @@ const TodoList = () => {
                        items.map((elem)=>{
                         return(
                             <div className="eachItem" key={elem.id}>
-                        <h3>{elem.name}</h3>
-                        <div className="todo_btn">
-                            <i className="fa-solid fa-edit add-btn" title='Edit Item' onClick={()=>editItem(elem.id)}></i>
-                            <i className="fa-solid fa-trash add-btn" title='Delete Item' onClick={()=>deleteItem(elem.id)}></i>
-                        </div>
+                                <h3>{elem.name}</h3>
+                                <div className="todo_btn">
+                                    <i className="fa-solid fa-edit add-btn" title='Edit Item' onClick={()=>editItem(elem.id)}></i>
+                                    <i className="fa-solid fa-trash add-btn" title='Delete Item' onClick={()=>deleteItem(elem.id)}></i>
+                            </div>
                     </div>
                         )
                        })
