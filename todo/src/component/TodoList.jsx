@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
-import todo from "../images/todo.svg"
+// import todo from "../images/todo.svg"
+import todo from '../images/todo.png'
+import '../App.css'
 const TodoList = () => {
     const [input,setInput]=useState('')
     const [items,setItems]=useState([])
@@ -95,9 +97,9 @@ const TodoList = () => {
                         return(
                             <div className="eachItem" key={elem.id}>
                                 <h3>{elem.name}</h3>
-                                <div className="todo_btn">
+                                <div className="todo-btn">
                                     <i className="fa-solid fa-edit add-btn" title='Edit Item' onClick={()=>editItem(elem.id)}></i>
-                                    <i className="fa-solid fa-trash add-btn" title='Delete Item' onClick={()=>deleteItem(elem.id)}></i>
+                                    <i className="fa-solid fa-trash-alt add-btn" title='Delete Item' onClick={()=>deleteItem(elem.id)}></i>
                             </div>
                     </div>
                         )
@@ -105,7 +107,7 @@ const TodoList = () => {
                     }
                 </div>
 
-                <div className="clearItem">
+                <div className="showItems">
                     <button className='btn effect04' onClick={removeAll}><span>Clear List</span></button>
                 </div>
             </div>
